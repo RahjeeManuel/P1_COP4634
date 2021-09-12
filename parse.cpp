@@ -10,8 +10,8 @@ Parse::Parse(std::string inputstr){
     this->str[] = inputstr; //store input string into char array
 }
 void Parse::tokenizer(){
-    this->ptr = strtok(this->strArray, "%s%t\n"); 
+    this->ptr = strtok(this->str, "%s%t\n"); 
 }
-void Parse::loadVector(){ //load argument vector argument vector
-
+char * Parse::getPtr(){
+    return this->ptr;
 }

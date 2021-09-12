@@ -2,6 +2,10 @@
 #include "param.hpp"
 using std::cout;
 using std::endl;
+
+
+
+
 void Param::printParams() {
     cout << "InputRedirect: [" << ((inputRedirect != NULL) ? inputRedirect : "NULL") << "]" << endl <<
         "OutputRedirect: [" << ((outputRedirect != NULL) ? outputRedirect : "NULL") << "]" << endl <<

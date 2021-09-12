@@ -10,10 +10,7 @@ class Parse{
     public:
         Parse(std::string inputstr);// string i/p 
         void tokenizer(); //tokenize each string into tokens w delimiters
-        void loadVector();
+        char * getPtr(); //return pointer of tokinzed arr
 
-
-
-        //void storeTokens();
 };
 #endif
