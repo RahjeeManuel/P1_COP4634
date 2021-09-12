@@ -9,6 +9,7 @@ Myshell::Myshell(string prompt, string exit) {
 }
 void Myshell::start(bool debug) {
     string input; //i/p from user
+    Parse p(input);
     do {
         cout << prompt << " ";
         getline(cin, input);
@@ -23,9 +24,4 @@ void Myshell::start(bool debug) {
             break;
         }
     } while (true);
-}
-int main(int argc, char* argv[]) {
-    Myshell s;
-    s.start(false);
-    return 0;
 }
