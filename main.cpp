@@ -4,7 +4,8 @@
 #include<iostream>
 
 int main(int argc, char* argv[]) {
-    Myshell s(/*parameters*/);
+    Myshell s();
+
     s.start(false);
     return 0;
 }

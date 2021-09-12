@@ -9,11 +9,11 @@ Myshell::Myshell(string prompt, string exit) {
 }
 void Myshell::start(bool debug) {
     string input; //i/p from user
-    Parse p(input);
+    //Parse p(input);
     do {
         cout << prompt << " ";
         getline(cin, input);
-        if (input != exit) {
+        if (input != this->exit) {
             //parse
             //store into param
             //execute

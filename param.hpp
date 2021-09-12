@@ -12,7 +12,7 @@ class Param
         int argumentCount;              /* number of tokens in argument vector */
         char *argumentVector[MAXARGS];  /* array of strings */
     public:
-
         void printParams();
+        Param();
 };
 #endif
