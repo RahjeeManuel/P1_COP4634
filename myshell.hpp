@@ -1,6 +1,8 @@
 #ifndef MYSHELL_HPP
 #define MYSHELL_HPP
 #include <iostream>
+#include<string>
+
 using namespace std;
 class Myshell
 {

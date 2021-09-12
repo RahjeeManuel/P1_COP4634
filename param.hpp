@@ -1,6 +1,7 @@
 #ifndef PARAM_HPP
 #define PARAM_HPP
 #define MAXARGS 32
+#include"parse.hpp"
 #include <iostream>
 class Param
 {
@@ -11,7 +12,7 @@ class Param
         int argumentCount;              /* number of tokens in argument vector */
         char *argumentVector[MAXARGS];  /* array of strings */
     public:
-        
+
         void printParams();
 };
 #endif

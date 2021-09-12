@@ -1,5 +1,8 @@
 //implements the shell
 #include "myshell.hpp"
+
+using namespace std;
+
 Myshell::Myshell(string prompt, string exit) {
     this->prompt = prompt;
     this->exit = exit;
