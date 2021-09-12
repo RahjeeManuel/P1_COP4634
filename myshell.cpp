@@ -5,7 +5,7 @@ Myshell::Myshell(string prompt, string exit) {
     this->exit = exit;
 }
 void Myshell::start(bool debug) {
-    string input;
+    string input; //i/p from user
     do {
         cout << prompt << " ";
         getline(cin, input);
