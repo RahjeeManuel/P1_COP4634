@@ -8,7 +8,7 @@ void Myshell::start(bool debug) {
     string input;
     do {
         cout << prompt << " ";
-        cin >> input;
+        getline(cin, input);
         if (input != exit) {
             //parse
             //store into param
