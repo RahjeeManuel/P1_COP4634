@@ -1,8 +1,9 @@
 #ifndef MYSHELL_HPP
 #define MYSHELL_HPP
 #include <iostream>
-#include<string>
-
+#include <string.h>
+#include "parse.hpp"
+#include "param.hpp"
 using namespace std;
 class Myshell
 {

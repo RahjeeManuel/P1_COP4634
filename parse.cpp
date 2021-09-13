@@ -1,17 +1,14 @@
 //implements the command line parser of the shell
-#include"parse.hpp"
-#include<sstream>
-#include<stdio.h>
-#include<string.h>
-#include<string>
-
-Parse::Parse(std::string inputstr){
-    this->inputstr = inputstr; 
-    this->str[] = inputstr; //store input string into char array
+#include "parse.hpp"
+Parse::Parse() {
 }
-void Parse::tokenizer(){
-    this->ptr = strtok(this->str, "%s%t\n"); 
-}
-char * Parse::getPtr(){
-    return this->ptr;
+char** Parse::tokenize(char* input) {
+    char** args;
+    int i = 0;
+    char* token = strtok(input, " ");
+    while (token != NULL) {
+        args[i++] = token;
+        token = strtok(NULL, " ");
+    }
+    return args;
 }

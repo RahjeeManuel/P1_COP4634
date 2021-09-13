@@ -1,11 +1,9 @@
-#include"myshell.hpp"
-#include"param.hpp"
-#include"parse.hpp"
-#include<iostream>
-
-int main(int argc, char* argv[]) {
-    Myshell s();
-
-    s.start(false);
+#include "myshell.hpp"
+#include <string>
+int main(int argc, char** argv) {
+    Myshell shell;
+    string debug(argv[1]);
+    shell.start(debug == "-Debug");
+    
     return 0;
 }
