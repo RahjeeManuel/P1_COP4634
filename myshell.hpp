@@ -2,6 +2,7 @@
 #define MYSHELL_HPP
 #include <iostream>
 #include <string.h>
+#include <string>
 #include "parse.hpp"
 #include "param.hpp"
 using namespace std;
