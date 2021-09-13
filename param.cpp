@@ -15,7 +15,23 @@ Param::Param(){
     //allocate array to store i/p o/p redirects
     inputRedirect = new char[];
     outputRedirect = new char[];
-
-
-
+}
+Param::~Param(){
+    delete[] inputRedirect;
+    delete[] outputRedirect;
+}
+void Param::setBackground(bool num){
+    if(num == 1)
+        this->background = 1;
+    else 
+        this->background = 0;
+}
+int Param::getBackground(){
+    return background;
+}
+void Param::setArgumentCount(int argumentCount){
+    this->argumentCount = argumentCount;
+}
+int Param::getArgumentCount(){
+    return this->argumentCount;
 }

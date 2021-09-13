@@ -14,5 +14,11 @@ class Param
     public:
         void printParams();
         Param();
+        ~Param();
+        void setBackground(bool num);
+        int getBackground();
+        void setArgumentCount(int argumentCount);
+        int getArgumentCount();
+
 };
 #endif
