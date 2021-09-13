@@ -10,10 +10,10 @@ class Param
         char *outputRedirect;           /* file name or NULL */
         int background;                 /* either 0 (false) or 1 (true) */
         int argumentCount;              /* number of tokens in argument vector */
-        char *argumentVector[MAXARGS];  /* array of strings */
+        char *argumentVector[MAXARGS];  /* array of strings */ //string is ptr to parsed array
     public:
         void printParams();
-        Param();
+        Param(char *ArgumentVector);
         ~Param();
         void setBackground(bool num);
         int getBackground();

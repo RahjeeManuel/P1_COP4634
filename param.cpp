@@ -11,14 +11,17 @@ void Param::printParams() {
     for (int i = 0; i < argumentCount; i++)
         cout << "ArgumentVector[" << i << "]: [" << argumentVector[i] << "]" << endl;
 }
-Param::Param(){
+Param::Param(char *argumentVector){
     //allocate array to store i/p o/p redirects
     inputRedirect = new char[];
     outputRedirect = new char[];
+
+    this->argumentVector = argumentVector; //ptr to parsed arr
 }
 Param::~Param(){
     delete[] inputRedirect;
     delete[] outputRedirect;
+    delete argumentVector;
 }
 void Param::setBackground(bool num){
     if(num == 1)
