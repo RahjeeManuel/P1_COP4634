@@ -15,7 +15,7 @@ class Param
         void printParams();
         Param(char *ArgumentVector);
         ~Param();
-        void setBackground(bool num);
+        void setBackground(char amp);
         int getBackground();
         void setArgumentCount(int argumentCount);
         int getArgumentCount();
