@@ -1,13 +1,22 @@
-CXX = g++
-CXXFLAGS = -g -std=c++11 -Wall
+OBJS	= myshell.o param.o parse.o
+SOURCE	= myshell.cpp param.cpp parse.cpp
+HEADER	= myshell.hpp param.hpp parse.hpp
+OUT	= myshell
+CC	 = g++
+FLAGS	 = -g -c -Wall
+LFLAGS	 = 
 
-SRCS = $(wildcard *.hpp)
-OBJECTS = $(SRCS: .hpp=.o)
+all: $(OBJS)
+	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
 
-all: /*testFilesNames*/
+myshell.o: myshell.cpp
+	$(CC) $(FLAGS) myshell.cpp 
+
+param.o: param.cpp
+	$(CC) $(FLAGS) param.cpp 
+
+parse.o: parse.cpp
+	$(CC) $(FLAGS) parse.cpp 
 
 clean:
-        rm -rf *dSYM
-        $(RM) *.o *.gc* test/*.o core main
-testFileName: $(OBJECTS) //header and source code files
-        $(CXX) $(CXXFLAGS) -o $@ $^
+	rm -f $(OBJS) $(OUT)

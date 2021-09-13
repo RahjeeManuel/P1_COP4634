@@ -4,8 +4,12 @@
 #include <string.h>
 using namespace std;
 class Parse {
+    private:
+        int numArgs;
+        char* arguments[];
     public:
-        Parse();
-        char** tokenize(char* input);
+        Parse(char input[]);
+        int getNumArgs();
+        char** getArguments();
 };
 #endif

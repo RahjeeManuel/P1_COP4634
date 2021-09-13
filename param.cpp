@@ -1,7 +1,14 @@
 //class to hold parsed input data
 #include "param.hpp"
-using namespace std;
-Param::Param() { 
+Param::Param(char* arguments[], int numArgs) { 
+    //place arguments into params
+    for (int i = 0; i < numArgs; i++) {
+        argumentVector[i] = arguments[i];
+    }
+    argumentCount = numArgs;
+    inputRedirect = argumentCount >= 3 ? argumentVector[3] + 1 : NULL;  //these will need error protection
+    outputRedirect = argumentCount >= 4 ? argumentVector[4] + 1: NULL;  //can break easily
+    background = argumentCount >= 5 ? strcmp(argumentVector[5], "&") == 0 ? 1 : 0 : 0;
 }
 void Param::printParams() {
     cout << "InputRedirect: [" << ((inputRedirect != NULL) ? inputRedirect : "NULL") << "]" << endl <<
@@ -10,16 +17,4 @@ void Param::printParams() {
         "ArgumentCount: [" << argumentCount << "]" << endl;
     for (int i = 0; i < argumentCount; i++)
         cout << "ArgumentVector[" << i << "]: [" << argumentVector[i] << "]" << endl;
-}
-void Param::fillParams(char** args) {
-    //fill params with args array
-    inputRedirect = *(args + 0);
-    /*parsed args
-    char* a = *(args + 0);
-    char* b = *(args + 1);
-    char* c = *(args + 2);
-    char* d = *(args + 3);
-    char* e = *(args + 4);
-    char* f = *(args + 5);
-    */
 }

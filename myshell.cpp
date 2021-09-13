@@ -5,14 +5,14 @@ Myshell::Myshell(string prompt, string exit) {
     this->exit = exit;
 }
 void Myshell::start(bool debug) {
-    Parse parser;
-    Param params;
     string input;
     do {
         cout << prompt << " ";
         getline(cin, input);
         if (input != exit) {
-            params.fillParams(parser.tokenize(&input[0]));
+            Parse parser(&input[0]);
+            Param params(parser.getArguments(), parser.getNumArgs());
+            
             if (debug) {
                 params.printParams();
             }            
@@ -20,4 +20,10 @@ void Myshell::start(bool debug) {
             break;
         }
     } while (true);
+}
+int main(int argc, char** argv) {
+    Myshell shell;
+    shell.start(strcmp("-Debug", (argv[1] != NULL ? "-Debug" : "")) == 0);
+    
+    return 0;
 }
