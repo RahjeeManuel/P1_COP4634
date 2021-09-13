@@ -15,7 +15,7 @@ Param::Param(char *argumentVector){
     //allocate array to store i/p o/p redirects
     inputRedirect = new char[];
     outputRedirect = new char[];
-    this->argumentVector = argumentVector; //ptr to parsed arr
+    this->argumentVector = argumentVector; //set ptr to ptr of parsed array
 }
 Param::~Param(){
     delete[] inputRedirect;
