@@ -13,7 +13,7 @@ void Myshell::start(bool debug) {
         if (input != exit) {
             Parse parser(&input[0]);
             Param params(parser.getArgumentArray()); //this can be moved
-
+            
             //commands will be executed here
             
             if (debug) {
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-void myshell::interpreter(){
-        
+void myshell::interpreter(char){
+
 
 }

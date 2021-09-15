@@ -16,6 +16,6 @@ class Param
     public:
         Param(vector<char*> arguments);
         void printParams();
-        void getArgumentVector();
+        char* getArgumentVector();
 };
 #endif

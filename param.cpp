@@ -4,6 +4,7 @@ Param::Param(vector<char*> arguments) {
     outputRedirect = NULL;
     background = 0;
     argumentCount = arguments.size();
+    //argument vector parsed array
     for (int i = 0; i < argumentCount; i++) { //this can be refactored
         argumentVector[i] = arguments.at(i);
         if (strlen(argumentVector[i]) >= 2) {
@@ -28,6 +29,6 @@ void Param::printParams() {
     for (int i = 0; i < argumentCount; i++)
         cout << "ArgumentVector[" << i << "]: [" << argumentVector[i] << "]" << endl;
 }
-void Param::getArgumentVector(){
+char* Param::getArgumentVector(){
     return this->argumentVector;
 }
