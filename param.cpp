@@ -32,3 +32,6 @@ void Param::printParams() {
 char* Param::getArgumentVector(){
     return this->argumentVector;
 }
+int Param::getArgumentCount(){
+    return this->argumentCount;
+}

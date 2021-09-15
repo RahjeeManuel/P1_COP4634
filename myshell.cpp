@@ -1,5 +1,8 @@
 #include "myshell.hpp"
+#include<process.h>
+#include <stddef.h>
 using namespace std;
+
 
 Myshell::Myshell(string prompt, string exit) {
     this->prompt = prompt;
@@ -13,7 +16,7 @@ void Myshell::start(bool debug) {
         if (input != exit) {
             Parse parser(&input[0]);
             Param params(parser.getArgumentArray()); //this can be moved
-            
+            execute(params.getArgumentVector());
             //commands will be executed here
             
             if (debug) {
@@ -30,7 +33,12 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-void myshell::interpreter(char){
+void myshell::execute(char* argumentVector){//takes a ptr to a char arr
+
+    //command first elmnt, arguments rest, background last
+
+    char* arg_list[]={argumentVector[0],/*arguments*/};
+
 
 
 }

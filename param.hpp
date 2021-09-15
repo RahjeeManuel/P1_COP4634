@@ -17,5 +17,6 @@ class Param
         Param(vector<char*> arguments);
         void printParams();
         char* getArgumentVector();
+        int getArgumentCount();
 };
 #endif

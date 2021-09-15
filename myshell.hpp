@@ -14,6 +14,6 @@ class Myshell
     public:
         Myshell(string prompt = "$$$", string exit = "exit");
         void start(bool debug = false);
-        void interpreter();
+        void execute();
 };
 #endif
