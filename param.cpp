@@ -1,5 +1,7 @@
 //class to hold parsed input data
 #include "param.hpp"
+using namespace std;
+
 Param::Param(char* arguments[], int numArgs) { 
     //place arguments into params
     for (int i = 0; i < numArgs; i++) {
