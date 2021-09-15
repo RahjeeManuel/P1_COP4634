@@ -1,15 +1,14 @@
-//defines the functionality you want to expose
 #ifndef PARSE_HPP
 #define PARSE_HPP
+#include <vector>
 #include <string.h>
 using namespace std;
-class Parse {
+class Parse
+{
     private:
-        int numArgs;
-        char* arguments[];
+        vector<char*> argumentArray;
     public:
         Parse(char input[]);
-        int getNumArgs();
-        char** getArguments();
+        vector<char*> getArgumentArray();
 };
 #endif

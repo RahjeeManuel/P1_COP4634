@@ -2,6 +2,7 @@
 #define MYSHELL_HPP
 #include <iostream>
 #include <string.h>
+#include <string>
 #include "parse.hpp"
 #include "param.hpp"
 using namespace std;
@@ -13,5 +14,6 @@ class Myshell
     public:
         Myshell(string prompt = "$$$", string exit = "exit");
         void start(bool debug = false);
+        void interpreter();
 };
 #endif

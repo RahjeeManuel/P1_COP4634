@@ -1,17 +1,11 @@
-//implements the command line parser of the shell
 #include "parse.hpp"
-#include <iostream>
 Parse::Parse(char input[]) {
-    numArgs = 0;
-    char* token = strtok(input, " ");
+    char* token = strtok(input, " \t\n");
     while (token != NULL) {
-        arguments[numArgs++] = token;
-        token = strtok(NULL, " ");
+        argumentArray.push_back(token);
+        token = strtok(NULL, " \t\n");
     }
 }
-int Parse::getNumArgs() {
-    return numArgs;
-}
-char** Parse::getArguments() {
-    return arguments;
+vector<char*> Parse::getArgumentArray() {
+    return argumentArray;
 }
