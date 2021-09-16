@@ -38,7 +38,9 @@ void Myshell::execute(char* argumentVector, int argumentCount){//takes a ptr to 
         //char* arg_list[]={command,arguments,background};
    
     char* arg_list[argumentCount];
-
+    for(int i = 0 ;i < argumentCount; i++){ 
+        arg_list[i] = argumentVector[i];
+    }
     /*if(argumentCount == 2)
         arg_list = {argumentVector, argumentVector[1]};
     else if(argumentCount == 3)
@@ -46,11 +48,7 @@ void Myshell::execute(char* argumentVector, int argumentCount){//takes a ptr to 
     else if(argumentCount == 4)
         arg_list = {argumentVector, argumentVector[1],argumentVector[2],argumentVector[3]};
 */
-        for(int i = 0 ;i < argumentCount; i++){ 
-             arg_list[i] = argumentVector[i];
-        }
-       
-
+        
     execvp(argumentVector, arg_list);
     
     cout << "executed function worked";
