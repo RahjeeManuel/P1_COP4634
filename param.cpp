@@ -1,5 +1,26 @@
 #include "param.hpp"
-Param::Param(vector<char*> arguments) {
+/*Param::Param(vector<char*> arguments) {
+    inputRedirect = NULL;
+    outputRedirect = NULL;
+    background = 0;
+    argumentCount = arguments.size();
+    //argument vector parsed array
+    for (int i = 0; i < argumentCount; i++) { //this can be refactored
+        argumentVector[i] = arguments.at(i);
+        if (strlen(argumentVector[i]) >= 2) {
+            if (*argumentVector[i] == '<') {
+                inputRedirect = argumentVector[i] + 1;
+            } else if (*argumentVector[i] == '>') {
+                outputRedirect = argumentVector[i] + 1;
+            }
+        } else if (strlen(argumentVector[i]) == 1) {
+            if (*argumentVector[i] == '&') {
+                background = 1;
+            }
+        }
+    }
+}*/
+void Param::loadArr(vector<char*> arguments){
     inputRedirect = NULL;
     outputRedirect = NULL;
     background = 0;

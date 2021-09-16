@@ -8,7 +8,9 @@ class Parse
     private:
         vector<char*> argumentArray;
     public:
-        Parse(char input[]);
+       // Parse(char input[])
+        void tokenize(char input[]);
         vector<char*> getArgumentArray();
+        //setInput(char* input);
 };
 #endif

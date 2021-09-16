@@ -14,7 +14,8 @@ class Param
         int argumentCount;
         char* argumentVector[MAXARGS];
     public:
-        Param(vector<char*> arguments);
+        //Param(vector<char*> arguments);
+        void loadArr(vector<char*> arguments);
         void printParams();
         char* getArgumentVector();
         int getArgumentCount();
