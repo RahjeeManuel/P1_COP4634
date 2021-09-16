@@ -14,9 +14,11 @@ void Myshell::start(bool debug) {
         cout << prompt << " ";
         getline(cin, input);
         if (input != exit) {
-            Parse parser(&input[0]);
-            Param params(parser.getArgumentArray()); //this can be moved
-            execute(params.getArgumentVector());
+
+           this->parser(&input[0]);
+           this->params(parser.getArgumentArray()); 
+
+            execute(params.getArgumentVector(), params.getArgumentCount());
             //commands will be executed here
             
             if (debug) {
@@ -33,10 +35,14 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-void myshell::execute(char* argumentVector){//takes a ptr to a char arr
-
+void myshell::execute(char* argumentVector, int ArgumentCount){//takes a ptr to a char arr
+    
     //command first elmnt, arguments rest, background last
 
+    for(int i = 1; i < 4;i++){
+        if(argumentCount == 2)
+            char* arg_list[]={argumentVector[0], argumentVector[1]};
+    }
     char* arg_list[]={argumentVector[0],/*arguments*/};
 
 

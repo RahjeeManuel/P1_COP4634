@@ -11,6 +11,10 @@ class Myshell
     private:
         string prompt;
         string exit;
+
+        Parse parser;
+        Param params;
+
     public:
         Myshell(string prompt = "$$$", string exit = "exit");
         void start(bool debug = false);
