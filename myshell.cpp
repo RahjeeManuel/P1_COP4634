@@ -36,15 +36,19 @@ int main(int argc, char* argv[]) {
     return 0;
 }
 void myshell::execute(char* argumentVector, int ArgumentCount){//takes a ptr to a char arr
+        //char* arg_list[]={command,arguments,background};
+   
+    char* arg_list[];
+
+    if(argumentCount == 2)
+        arg_list[]={argumentVector, argumentVector[i]};
+    else if(argumentCount == 3)
+        arg_list[]={argumentVector, argumentVector[i],argumentVector[i++]};
+    else if(argumentCount == 4)
+        arg_list[]={argumentVector, argumentVector[1],argumentVector[2],argumentVector[3]};
+
+    execv(argumentVector, arg_list);
     
-    //command first elmnt, arguments rest, background last
-
-    for(int i = 1; i < 4;i++){
-        if(argumentCount == 2)
-            char* arg_list[]={argumentVector[0], argumentVector[1]};
-    }
-    char* arg_list[]={argumentVector[0],/*arguments*/};
-
-
-
+    cout << "executed function worked";
+        
 }
