@@ -19,6 +19,6 @@ class Myshell
     public:
         Myshell(string prompt = "$$$", string exit = "exit");
         void start(bool debug = false);
-        void execute(char* argumentVector, int ArgumentCount);
+        void execute(char** argumentVector, int ArgumentCount);
 };
 #endif

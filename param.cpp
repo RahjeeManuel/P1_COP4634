@@ -50,7 +50,7 @@ void Param::printParams() {
     for (int i = 0; i < argumentCount; i++)
         cout << "ArgumentVector[" << i << "]: [" << argumentVector[i] << "]" << endl;
 }
-char* Param::getArgumentVector(){
+char** Param::getArgumentVector(){
     return this->argumentVector;
 }
 int Param::getArgumentCount(){

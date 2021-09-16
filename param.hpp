@@ -8,16 +8,16 @@ using namespace std;
 class Param
 {
     private:
-        char* inputRedirect;
-        char* outputRedirect;
+        char *inputRedirect;
+        char *outputRedirect;
         int background;
         int argumentCount;
-        char* argumentVector[MAXARGS];
+        char *argumentVector[MAXARGS];
     public:
         //Param(vector<char*> arguments);
         void loadArr(vector<char*> arguments);
         void printParams();
-        char* getArgumentVector();
+        char** getArgumentVector();
         int getArgumentCount();
 };
 #endif

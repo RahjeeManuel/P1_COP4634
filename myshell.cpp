@@ -1,5 +1,7 @@
 #include "myshell.hpp"
 #include <stddef.h>
+#include<stdio.h>
+#include<unistd.h>
 using namespace std;
 
 
@@ -34,23 +36,17 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-void Myshell::execute(char* argumentVector, int argumentCount){//takes a ptr to a char arr
+void Myshell::execute(char** argumentVector, int argumentCount){//takes a ptr to a char arr
         //char* arg_list[]={command,arguments,background};
    
     char* arg_list[argumentCount];
     for(int i = 0 ;i < argumentCount; i++){ 
         arg_list[i] = argumentVector[i];
     }
-    /*if(argumentCount == 2)
-        arg_list = {argumentVector, argumentVector[1]};
-    else if(argumentCount == 3)
-        arg_list = {argumentVector, argumentVector[1],argumentVector[2]};
-    else if(argumentCount == 4)
-        arg_list = {argumentVector, argumentVector[1],argumentVector[2],argumentVector[3]};
-*/
+    arg_list[argumentCount] = NULL;
         
-    execvp(argumentVector, arg_list);
+    execvp(argumentVector[0], arg_list);
     
-    cout << "executed function worked";
+    //cout << "executed function worked";
         
 }

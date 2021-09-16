@@ -17,7 +17,3 @@ void Parse::tokenize(char input[]){
 vector<char*> Parse::getArgumentArray() {
     return argumentArray;
 }
-/*
-void Parse::setInput(char* input){
-    this->input = input;
-}

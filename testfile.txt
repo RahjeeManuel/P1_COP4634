@@ -1,0 +1,15 @@
+total 788
+-rw-r--r--. 1 or8 domain users    399 Sep 13 10:42 Makefile
+-rwxr-xr-x. 1 or8 domain users 165152 Sep 15 21:55 myshell
+-rw-r--r--. 1 or8 domain users   1341 Sep 15 21:54 myshell.cpp
+-rw-r--r--. 1 or8 domain users    489 Sep 15 21:47 myshell.hpp
+-rw-r--r--. 1 or8 domain users 132816 Sep 15 21:55 myshell.o
+-rw-r--r--. 1 or8 domain users   2112 Sep 15 21:34 param.cpp
+-rw-r--r--. 1 or8 domain users    516 Sep 15 21:33 param.hpp
+-rw-r--r--. 1 or8 domain users  64320 Sep 15 21:34 param.o
+-rw-r--r--. 1 or8 domain users    475 Sep 15 21:35 parse.cpp
+-rw-r--r--. 1 or8 domain users    322 Sep 15 20:52 parse.hpp
+-rw-r--r--. 1 or8 domain users 108448 Sep 15 21:35 parse.o
+-rw-r--r--. 1 or8 domain users 284772 Sep  8 12:08 Project 1-1.pdf
+-rw-r--r--. 1 or8 domain users  10617 Sep  8 12:21 README.md
+-rw-r--r--. 1 or8 domain users      0 Sep 15 21:55 testfile.txt
