@@ -1,23 +1,22 @@
 #ifndef PARAM_HPP
 #define PARAM_HPP
-#define MAXARGS 32
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <vector>
 using namespace std;
 class Param
 {
     private:
-        char *inputRedirect;
-        char *outputRedirect;
+        string inputRedirect;
+        string outputRedirect;
+        vector<string> argumentVector;
         int background;
-        int argumentCount;
-        char *argumentVector[MAXARGS];
     public:
-        //Param(vector<char*> arguments);
-        void loadArr(vector<char*> arguments);
+        Param(vector<string> tokens);
+        string getInputRedirect();
+        string getOuputRedirect();
+        vector<string> getArgumentVector();
+        int getBackground();
         void printParams();
-        char** getArgumentVector();
-        int getArgumentCount();
 };
 #endif
