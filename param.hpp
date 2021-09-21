@@ -1,5 +1,6 @@
 #ifndef PARAM_HPP
 #define PARAM_HPP
+#define MAXARGS 32
 #include <iostream>
 #include <string>
 #include <vector>
@@ -16,6 +17,7 @@ class Param
         string getInputRedirect();
         string getOuputRedirect();
         vector<string> getArgumentVector();
+        char** getExecArray();
         int getBackground();
         void printParams();
 };

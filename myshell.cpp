@@ -1,35 +1,20 @@
 #include "myshell.hpp"
-#include<sys/wait.h>
-#include<unistd.h>
-#include<iostream>
-
-
-void Myshell::execute(Param params) {//creates children
-
-     char* arg_list[32];//max 32
-     int status;//keeps track of children
-     int cpid = fork();
-
-     if(cpid == 0){
-         for(int i = 0; i < (int)params.getArgumentVector().size(); i++){
-            // arg_list[i] = params.getArgumentVector().at(i);
-            if(params.getArgumentVector().at(i) != "&")
-            arg_list[i] = strdup(params.getArgumentVector().at(i).c_str());
+void Myshell::execute(Param params) {
+    int status;
+    int pid = fork();
+    char** args = params.getExecArray();
+    if (pid == 0) {
+        if (params.getOuputRedirect().size() != 0) {    //redirect output if a output redirect exists
+            freopen(strdup(params.getOuputRedirect().c_str()), "w", stdout);
         }
-        arg_list[params.getArgumentVector().size()] = NULL;
-
-        execvp(arg_list[0], arg_list);
-     }
-    
-    children.push_back(cpid);
- 
-    if(params.getBackground() == 0){//if background exists
-        waitpid(cpid, &status, 0);
+        execvp(args[0], args);
     }
-    if(params.getBackground() == 1){
-        children.push_back(cpid);
-       // waitpid(cpid, &status, 0);
+    if (params.getBackground() == 0) {  //wait for child if background == 0
+        waitpid(pid, &status, 0);
+    } else {
+        cpids.push_back(pid);   //add to the list if the child will run in background
     }
+    delete[] args;
 }
 Myshell::Myshell(string prompt, string exit) {
     this->prompt = prompt;
@@ -43,20 +28,15 @@ void Myshell::start(bool debug) {
         if (input != exit) {
             Param params(Parse::tokenize(input));
             execute(params);
-                /*if(params.getBackground == 0){
-                    fork(); //pid
-
-                }*/
             if (debug) {
-                std::cout << std::endl;
                 params.printParams();
             }
         } else {
-            int status;
-            for(int i = 0; i < (int)children.size(); i++){
-                if(waitpid(children.at(i), &status, 0) == -1){ //-1 or null == still running process
-                    if(WIFEXITED(status) == 0) //child exited normaly
-                        break;
+            for (unsigned int i = 0; i < cpids.size(); ++i) {
+                int status;
+                while (waitpid(cpids[i], &status, 0) == -1);    //wait for child to finish
+                if (!WIFEXITED(status) || WEXITSTATUS(status) != 0) {   //break if child is finished
+                    break;
                 }
             }
             break;

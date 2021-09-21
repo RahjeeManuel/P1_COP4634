@@ -4,18 +4,19 @@
 #include <unistd.h>
 #include <string.h>
 #include <fstream>
-#include<vector>
+#include <stdlib.h>
+#include <sys/wait.h>
+#include <vector>
+#include <string>
 #include "parse.hpp"
 #include "param.hpp"
 using namespace std;
 class Myshell
 {
     private:
-        vector<int> children;
         string prompt;
         string exit;
-        string readFile(string fileName);
-        void writeFile(string fileName, string input);
+        vector<int> cpids;
         void execute(Param params);
     public:
         Myshell(string prompt = "$$$", string exit = "exit");

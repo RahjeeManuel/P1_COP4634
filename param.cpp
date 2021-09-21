@@ -2,27 +2,15 @@
 #include <string.h>
 Param::Param(vector<string> tokens) {
     argumentVector = tokens;
-    /*
     for (unsigned int i = 0; i < argumentVector.size(); i++) {
         if (argumentVector.at(i).find("<") == 0) {
             inputRedirect = argumentVector.at(i).substr(1);
+            argumentVector.at(i) = inputRedirect;
         } else if (argumentVector.at(i).find(">") == 0) {
             outputRedirect = argumentVector.at(i).substr(1);
-        }
-    }*/
-
-    for(unsigned int i = 0; i <argumentVector.size(); i++){
-
-        if(tokens.at(i).find("<") == 0){
-            inputRedirect = tokens.at(i).substr(1);
-            argumentVector.at(i) = inputRedirect;
-        }else if(tokens.at(i).find(">") == 0){
-            outputRedirect = tokens.at(i).substr(1);
             argumentVector.at(i) = outputRedirect;
-        }else 
-            this->argumentVector.at(i) == tokens.at(i);
+        }
     }
-
     background = argumentVector.back() == "&" ? 1 : 0;
 }
 string Param::getInputRedirect() {
@@ -33,6 +21,22 @@ string Param::getOuputRedirect() {
 }
 vector<string> Param::getArgumentVector() {
     return argumentVector;
+}
+char** Param::getExecArray() {
+    //returns an array without outputredirect and &
+    char** args;
+    args = new char*[MAXARGS];
+    int i = 0;
+    for (string s : argumentVector) {
+        if (s != outputRedirect) {
+            if (s != "&") {
+                args[i] = strdup(s.c_str());
+                i++;
+            }
+        }
+    }
+    args[i] = NULL;
+    return args;
 }
 int Param::getBackground() {
     return background;
