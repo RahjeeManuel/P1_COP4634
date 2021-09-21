@@ -15,8 +15,10 @@ Param::Param(vector<string> tokens) {
 
         if(tokens.at(i).find("<") == 0){
             inputRedirect = tokens.at(i).substr(1);
+            argumentVector.at(i) = inputRedirect;
         }else if(tokens.at(i).find(">") == 0){
             outputRedirect = tokens.at(i).substr(1);
+            argumentVector.at(i) = outputRedirect;
         }else 
             this->argumentVector.at(i) == tokens.at(i);
     }

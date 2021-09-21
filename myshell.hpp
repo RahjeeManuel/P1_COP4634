@@ -4,12 +4,14 @@
 #include <unistd.h>
 #include <string.h>
 #include <fstream>
+#include<vector>
 #include "parse.hpp"
 #include "param.hpp"
 using namespace std;
 class Myshell
 {
     private:
+        vector<int> children;
         string prompt;
         string exit;
         string readFile(string fileName);
