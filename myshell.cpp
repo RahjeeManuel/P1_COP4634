@@ -30,9 +30,6 @@ void Myshell::execute(Param params) {
     arg_list[params.getArgumentVector().size()] = NULL;
 
     execvp(arg_list[0], arg_list);
-
-
-
 }
 Myshell::Myshell(string prompt, string exit) {
     this->prompt = prompt;
