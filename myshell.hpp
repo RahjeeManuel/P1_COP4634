@@ -18,6 +18,7 @@ class Myshell
         string exit;
         vector<int> cpids;
         void execute(Param params);
+        void waitForChildren();
     public:
         Myshell(string prompt = "$$$", string exit = "exit");
         void start(bool debug = false);

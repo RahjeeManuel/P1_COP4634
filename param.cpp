@@ -1,8 +1,10 @@
 #include "param.hpp"
 #include <string.h>
 Param::Param(vector<string> tokens) {
+    //fill the argumentVector with the tokens
     argumentVector = tokens;
     for (unsigned int i = 0; i < argumentVector.size(); i++) {
+        //remove <> operators then set redirects
         if (argumentVector.at(i).find("<") == 0) {
             inputRedirect = argumentVector.at(i).substr(1);
             argumentVector.at(i) = inputRedirect;
@@ -23,7 +25,7 @@ vector<string> Param::getArgumentVector() {
     return argumentVector;
 }
 char** Param::getExecArray() {
-    //returns an array without outputredirect and &
+    //returns a formated array for execvp(3)
     char** args;
     args = new char*[MAXARGS];
     int i = 0;

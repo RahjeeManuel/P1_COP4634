@@ -3,18 +3,33 @@ void Myshell::execute(Param params) {
     int status;
     int pid = fork();
     char** args = params.getExecArray();
+
+    //begin execvp(3) in the child
     if (pid == 0) {
-        if (params.getOuputRedirect().size() != 0) {    //redirect output if a output redirect exists
+        //redirect output if an outputredirect exists
+        if (params.getOuputRedirect().size() != 0) {  
             freopen(strdup(params.getOuputRedirect().c_str()), "w", stdout);
         }
         execvp(args[0], args);
     }
-    if (params.getBackground() == 0) {  //wait for child if background == 0
+
+    //wait for the child if background == 0, otherwise do not wait and add the child to pid vector
+    if (params.getBackground() == 0) {  
         waitpid(pid, &status, 0);
     } else {
-        cpids.push_back(pid);   //add to the list if the child will run in background
+        cpids.push_back(pid);
     }
     delete[] args;
+}
+Myshell::waitForChildren() {
+    //wait for all children in pid list to finish
+    for (unsigned int i = 0; i < cpids.size(); ++i) {
+        int status;
+        while (waitpid(cpids[i], &status, 0) == -1);    
+        if (!WIFEXITED(status) || WEXITSTATUS(status) != 0) {
+            break;
+        }
+    }
 }
 Myshell::Myshell(string prompt, string exit) {
     this->prompt = prompt;
@@ -25,20 +40,17 @@ void Myshell::start(bool debug) {
     do {
         cout << prompt << " ";
         getline(cin, input);
+
         if (input != exit) {
+            //tokenize input then send the params to execute
             Param params(Parse::tokenize(input));
             execute(params);
+            
             if (debug) {
                 params.printParams();
             }
         } else {
-            for (unsigned int i = 0; i < cpids.size(); ++i) {
-                int status;
-                while (waitpid(cpids[i], &status, 0) == -1);    //wait for child to finish
-                if (!WIFEXITED(status) || WEXITSTATUS(status) != 0) {   //break if child is finished
-                    break;
-                }
-            }
+            waitForChildren()
             break;
         }
     } while (true);
