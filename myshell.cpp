@@ -21,7 +21,7 @@ void Myshell::execute(Param params) {
     }
     delete[] args;
 }
-Myshell::waitForChildren() {
+void Myshell::waitForChildren() {
     //wait for all children in pid list to finish
     for (unsigned int i = 0; i < cpids.size(); ++i) {
         int status;
@@ -50,7 +50,7 @@ void Myshell::start(bool debug) {
                 params.printParams();
             }
         } else {
-            waitForChildren()
+            waitForChildren();
             break;
         }
     } while (true);
