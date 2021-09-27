@@ -7,7 +7,7 @@ A simple shell is implemented which parses a command line entered by the user an
 Compiling the program with command:
 make
 
-# Running Executable File
+# Running Executable
 Running the program with command:
 ./myshell
 
