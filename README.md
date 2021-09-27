@@ -5,18 +5,18 @@ A simple shell is implemented which parses a command line entered by the user an
 
 # Compilation
 Compiling the program with command:
-    make
+make
 
 # Running Executable File
 Running the program with command:
-    ./myshell
+./myshell
 
 Running the shell in debug mode:
-    ./myshell -Debug
+./myshell -Debug
 
 # Commands
 The prompt $$$ will show, where you can then type in commands in the format:
-    $$$ one two three <four >five &
+$$$ one two three <four >five &
 
 debug mode will show info such as:
 InputRedirect: [four]
@@ -31,7 +31,7 @@ ArgumentVector[4]: [>five]
 ArgumentVector[5]: [&]
 
 Exiting program:
-    type command <exit>
+type command <exit>
 
 Removing object files:
-    type command <make clean>
+type command <make clean>
