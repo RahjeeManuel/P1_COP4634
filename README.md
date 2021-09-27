@@ -1,7 +1,7 @@
 # Project 1: Processes | CREATING YOUR OWN SHELL
 
 # Background
-The implementation of a simple shell that parses a command line entered by the user that creates new processes and executes programs with system calls. 
+A simple shell is implemented which parses a command line entered by the user and creates new processes and executes programs with system calls. 
 
 # Compilation
 Compiling the program with command:
